@@ -1,0 +1,20 @@
+{
+  "name": "linkedin-bot",
+  "version": "1.0.0",
+  "description": "AI-powered LinkedIn post generator that delivers daily posts via Telegram",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.27.0",
+    "@google/generative-ai": "^0.24.1",
+    "dotenv": "^16.4.5",
+    "googleapis": "^172.0.0",
+    "groq-sdk": "^1.2.0",
+    "node-cron": "^3.0.3",
+    "node-telegram-bot-api": "^0.66.0"
+  }
+}

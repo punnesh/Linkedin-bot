@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment variables
+.env
+.env.*
+linkedin-*.json
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Build and temp directories
+dist/
+build/
+.cache/
+.tmp/
+temp/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
