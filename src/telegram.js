@@ -52,6 +52,7 @@ export function initBot() {
     { command: '/provider', description: 'View & switch AI text provider' },
     { command: '/imageprovider', description: 'View & switch image provider' },
     { command: '/help', description: 'Show all commands' },
+    { command: '/stop', description: 'Gracefully shut down the bot server' },
   ]);
 
   // /start
@@ -88,9 +89,23 @@ export function initBot() {
       `/provider — View & switch AI text provider\n` +
       `/imageprovider — View & switch image provider\n` +
       `/start — Welcome message\n` +
-      `/help — This message`,
+      `/help — This message\n` +
+      `/stop — Shut down the bot (use this when done to save GitHub Action minutes)`,
       { parse_mode: 'Markdown' }
     );
+  });
+
+  // /stop
+  bot.onText(/\/stop/, (msg) => {
+    const chatId = msg.chat.id;
+    bot.sendMessage(
+      chatId,
+      `🛑 *Shutting down the server...*\n\nThanks for using the bot! The GitHub Action will now exit gracefully.`,
+      { parse_mode: 'Markdown' }
+    ).then(() => {
+      console.log('Received /stop command. Shutting down gracefully...');
+      process.exit(0);
+    });
   });
 
   // /provider
